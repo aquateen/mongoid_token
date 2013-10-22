@@ -18,10 +18,10 @@ describe Mongoid::Token::Finders do
 
     Mongoid::Token::Finders.define_custom_token_finder_for(klass)
 
-    klass.find(Moped::BSON::ObjectId.new).should == :original_find
-    klass.find(Moped::BSON::ObjectId.new, Moped::BSON::ObjectId.new).should == :original_find
+    klass.find(BSON::ObjectId.new).should == :original_find
+    klass.find(BSON::ObjectId.new, BSON::ObjectId.new).should == :original_find
     klass.find().should == :original_find
-    klass.find(Moped::BSON::ObjectId.new, "token").should == :token_find
+    klass.find(BSON::ObjectId.new, "token").should == :token_find
     klass.find("token").should == :token_find
   end
 
